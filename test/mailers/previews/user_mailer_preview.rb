@@ -3,7 +3,7 @@ class UserMailerPreview < ActionMailer::Preview
 
     def new_user_mail
         user = User.new(name: "test", email: "test@gmail.com")
-        UserMailer.with(user: user)
+        UserMailer.with(user: user).new_user_mail
         
     end
 
