@@ -1,10 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
 
-
-<% @item.uploads.each do |upload|%>
+<% if @item.uploads.attached? %>
+  <% @item.uploads.each do |upload|%>
   <%= image_tag(upload)%>
+    <%= button_to "delete attachment",purge_attachment_path(upload), method: :delete %>
+  <%end%>
 <%end%>
+
 
 <p>
 <% if @item.cover.attached? %>
