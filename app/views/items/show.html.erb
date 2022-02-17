@@ -1,5 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
+
+<% if @item.uploads.attached? %>
+  <% @item.uploads.each do |upload|%>
+  <%= image_tag(upload)%>
+    <%= button_to "delete attachment",purge_attachment_path(upload), method: :delete %>
+  <%end%>
+<%end%>
+
+
+<p>
+<% if @item.cover.attached? %>
+  <%= image_tag(@item.cover) %>
+  <%= button_to "delete cover",purge_avatar_item_path(@item), method: :delete %>
+  <%end%>
+</p>
 <%= render @item %>
 
 <div>

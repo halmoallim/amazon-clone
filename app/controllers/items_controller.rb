@@ -5,6 +5,11 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
   end
+  def purge_avatar
+    @item = Item.find(params[:id])
+    @item.cover.purge
+    redirect_back fallback_location: root_path, notice: "success"  
+  end
 
   # GET /items/1 or /items/1.json
   def show
@@ -25,6 +30,9 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
+        ItemMailer.with(item: @item).new_item_mail.deliver_now
+
+
         format.html { redirect_to item_url(@item), notice: "Item was successfully created." }
         format.json { render :show, status: :created, location: @item }
       else
@@ -65,6 +73,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:name, :price)
+      params.require(:item).permit(:name, :price, :cover, uploads: [])
     end
 end
