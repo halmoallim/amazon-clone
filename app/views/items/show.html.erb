@@ -7,7 +7,10 @@
 <%end%>
 
 <p>
-<%= image_tag(@item.cover) %>
+<% if @item.cover.attached? %>
+  <%= image_tag(@item.cover) %>
+  <%= button_to "delete cover",purge_avatar_item_path(@item), method: :delete %>
+  <%end%>
 </p>
 <%= render @item %>
 
