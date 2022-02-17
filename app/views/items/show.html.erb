@@ -1,5 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
+
+
+<% @item.uploads.each do |upload|%>
+  <%= image_tag(upload)%>
+<%end%>
+
+<p>
+<%= image_tag(@item.cover) %>
+</p>
 <%= render @item %>
 
 <div>
