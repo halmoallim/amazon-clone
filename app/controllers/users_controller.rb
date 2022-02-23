@@ -25,7 +25,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        UserMailer.with(user: @user).new_user_mail.deliver_now
+        #UserMailer.with(user: @user).new_user_mail.deliver_now
+        #UserMailer.with(user: @user).new_user_mail.deliver_later
+        SendingEmailJob.perform_later(user: @user)
+        DailysummaryjobJob.perform_later(user: @user)
 
 
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
