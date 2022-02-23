@@ -26,6 +26,9 @@ class ItemsController < ApplicationController
     respond_to do |format|
       if @item.save
         ItemMailer.with(item: @item).new_item_mail.deliver_now
+        DailysummaryjobJob.perform_later(item: @item)
+        
+
 
 
         format.html { redirect_to item_url(@item), notice: "Item was successfully created." }
