@@ -76,6 +76,18 @@ after deleting an attachment
 
 
 
+---------------------------------------------------------
+
+* here is a screenshot after active job for sending the email the:
+
+[![Screen-Shot-2022-02-23-at-4-02-02-PM.png](https://i.postimg.cc/15K7L04c/Screen-Shot-2022-02-23-at-4-02-02-PM.png)](https://postimg.cc/D88cGXr8)
 
 
+* here is a screenshot after active job(daily summary):
 
+[![Screen-Shot-2022-02-23-at-4-01-35-PM.png](https://i.postimg.cc/vmC0W3SM/Screen-Shot-2022-02-23-at-4-01-35-PM.png)](https://postimg.cc/LqBkSBp0)
+
+
+* here is a screenshot for testing the active job(daily summary):
+
+[![Screen-Shot-2022-02-23-at-4-01-07-PM.png](https://i.postimg.cc/L8nkNjPs/Screen-Shot-2022-02-23-at-4-01-07-PM.png)](https://postimg.cc/qNHC7hjf)
